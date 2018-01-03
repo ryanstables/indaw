@@ -30,10 +30,10 @@ function get_chroma(x) {
     // get a spectrum from the first frame of audio data...
     var spectrum = xtract_spectrum(audio[0], 44100, false, false);    
     // init chroma filters...
-//    var chromaFilters = xtract_init_chroma(nfft, 44100, nbins);
+    var chromaFilters = xtract_init_chroma(nfft, 44100, nbins);
     // find the chroma bands...
-//    var chroma = xtract_chroma(spectrum, chromaFilters);    
-    return spectrum;    
+    var chroma = xtract_chroma(spectrum, chromaFilters);    
+    return chroma;    
 }
 
 // Canvas script...
