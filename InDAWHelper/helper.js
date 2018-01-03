@@ -8,8 +8,8 @@ var offset =0
 // toggle help box...
 var helpButton = document.getElementById("helper_button");
 helpButton.addEventListener("click", function() { 
-    targetStyle = window.getComputedStyle(target, null)
-    buttonStyle = window.getComputedStyle(toggle_button, null)
+    var targetStyle = window.getComputedStyle(target, null)
+    var buttonStyle = window.getComputedStyle(toggle_button, null)
     var boxWidth = parseInt(targetStyle.width)
     var indent = parseInt(targetStyle.right)
     var border = parseInt(targetStyle.borderWidth)
