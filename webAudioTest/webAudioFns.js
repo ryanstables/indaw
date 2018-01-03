@@ -1,15 +1,15 @@
-var audio = null;
-var audioData = new Float64Array();
+var audio = [];
+var audioData = [];
 
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 var audiocontext = new AudioContext();
-
 window.addEventListener('load', loadSound)
 window.addEventListener('load', plot([100, 200, 150, 300, 380, 100, 200]))
 
+// load the audio...
 function loadSound() {
   var request = new XMLHttpRequest();
-  request.open('GET', 'piano.wav', true);
+  request.open('GET', 'piano-chrom.wav', true);
   request.responseType = 'arraybuffer';
 
   // Decode asynchronously
@@ -22,6 +22,8 @@ function loadSound() {
   request.send();
 }
 
+
+//test the chroma feature extractor...
 function get_chroma(x) {
     var nfft = 1024;
     var nbins = 12;
@@ -32,13 +34,12 @@ function get_chroma(x) {
     // init chroma filters...
     var chromaFilters = xtract_init_chroma(nfft, 44100, nbins);
     // find the chroma bands...
-    var chroma = xtract_chroma(spectrum, chromaFilters);    
+    var chroma = xtract_chroma(spectrum, chromaFilters);        
     return chroma;    
 }
 
-// Canvas script...
-var sales = [0, 0.1, 0.1, 0.1];
 
+// plot() function using a HTML canvas... 
 function plot(x) {        
     var canvas = document.getElementById("canvas");    
     var c = canvas.getContext("2d");        
@@ -48,18 +49,15 @@ function plot(x) {
     var offset = (1 / (x.length - 1)) * width;
     var maxX = x.reduce(function(a, b) { return Math.max(a, b);});
     var minX = x.reduce(function(a, b) { return Math.min(a, b);});
-
+    // scale the input values to be plotted
     function drawToScale(input) {
         return height - ( (input-minX)*height) / (maxX-minX);        
-    }
-    
+    }    
     // remove the previuous lines
-    c.clearRect(0, 0, width, height)      
-    
+    c.clearRect(0, 0, width, height)          
     // plot the new ones
     c.beginPath();
     c.moveTo(0,  drawToScale(x[0]));
-
     for (var i = 1; i < x.length; i++) {
         c.lineTo(i * offset, drawToScale(x[i]) );
     }
