@@ -1,0 +1,62 @@
+body {
+    background-color: #ffff55;
+    padding: 0px;   
+    margin: 0px;
+}
+
+h1 {
+    color: #5555ff;
+}
+
+p {
+    color: #5555ff;
+}
+
+.helper
+{
+    background-color:#55ff55; 
+    border-color: #000; 
+    border-style: dashed; 
+    padding: 20px;   
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: scroll; /* but content dissapears onMouseOut?*/
+}
+
+#helper_target
+{    
+    background-color: burlywood;
+    padding: 0px 10px 0px 10px;
+    margin: 0px;
+    border: solid 3px #000;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    position: fixed;
+    right: 0px;
+    bottom: 30px;
+    width: 150px;
+    height: 100px;
+    z-index: 100; /* make this higher if needed?*/    
+    overflow: scroll; /* but content dissapears onMouseOut?*/
+    visibility: visible;
+    transition: right 1s;
+}
+
+#helper_button
+{
+    background-color: indianred;
+    padding: 0px;
+    margin: 0px;
+    border: solid 3px #000;     
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    
+    position: fixed;
+    right: 0px;
+    bottom: 30px;
+    width: 22px;
+    height: 106px;
+    z-index: 101; /* make this higher if needed?*/       
+}

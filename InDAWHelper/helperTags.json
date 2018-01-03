@@ -1,0 +1,10 @@
+var helperTags = [ 
+    {
+        tag: "helper_fader",
+        tooltip: "This is a fader, it can make things sound louder or quieter"
+    },
+    {
+        tag: "helper_region", 
+        tooltip: "This is a region, it contains audio information"
+    }
+];
