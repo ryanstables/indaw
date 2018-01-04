@@ -1,0 +1,20 @@
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.daw-area { 
+   background-color: #1abc9c; /* Green */
+    color: #ffffff;
+}
+
+.info-area { 
+  background-color: #474e5d; /* Dark Blue */
+  color: #ffffff;
+}
+
+.contact-area { 
+  background-color: #ffffff; /* White */
+  color: #555555;
+}
+
